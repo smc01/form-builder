@@ -9,14 +9,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MaterialModuleModule } from './material-module/material-module.module';
-import { TextInputComponent } from './modules/shared/components/text-input/text-input.component';
-import { TextInputSettingsComponent } from './modules/shared/components/text-input/text-input-settings.component';
+import { TextBoxComponent } from './modules/shared/components/text-input/text-box.component';
+import { TextInputSettingsComponent } from './modules/shared/components/text-input/pop-up-settings/text-input-settings.component';
+import { ComponentsListComponent } from './modules/shared/components/components-list/components-list.component';
+import { FormBuilderComponent } from './features/form-builder/form-builder.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TextInputComponent,
-    TextInputSettingsComponent
+    TextBoxComponent,
+    TextInputSettingsComponent,
+    ComponentsListComponent,
+    FormBuilderComponent
   ],
   imports: [
     BrowserModule,

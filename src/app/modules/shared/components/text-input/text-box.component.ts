@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { TextInputSettingsComponent } from './text-input-settings.component';
+import { TextInputSettingsComponent } from './pop-up-settings/text-input-settings.component';
 import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'text-input',
-  templateUrl: './text-input.component.html',
-  styleUrls: ['./text-input.component.scss']
+  templateUrl: './text-box.component.html',
+  styleUrls: ['./text-box.component.scss']
 })
-export class TextInputComponent implements OnInit {
+export class TextBoxComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 

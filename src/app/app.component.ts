@@ -34,27 +34,5 @@ export class AppComponent {
   }
 
 
-  drop(event: CdkDragDrop<BaseComponent[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      copyArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    }
-  }
-
-  ended(event: CdkDragEnd) {
-    console.log("end to move item");
-  }
-
-
-
-
-  onClickMe(index) {
-    if (index > -1) {
-      this._destinationList.splice(index, 1);
-    }
-  }
+  
 }

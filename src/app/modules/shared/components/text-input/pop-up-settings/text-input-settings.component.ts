@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { TextInputComponent } from './text-input.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TextBoxComponent } from '../text-box.component';
 
 @Component({
   selector: 'text-input-settings',
@@ -14,7 +14,7 @@ export class TextInputSettingsComponent implements OnInit {
 
 
   constructor(
-    public dialogRef: MatDialogRef<TextInputComponent>,
+    public dialogRef: MatDialogRef<TextBoxComponent>,
     @Inject(MAT_DIALOG_DATA) public label: string) {}
 
     onNoClick(): void {
