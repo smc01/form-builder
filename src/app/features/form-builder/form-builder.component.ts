@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragEnd, moveItemInArray, CdkDragDrop, copyArrayItem } from '@angular/cdk/drag-drop';
 import { ModelBase } from 'src/app/modules/shared/components/models/ModelBase';
 import { AppComponentTypes } from 'src/app/core/globals';
+import { MatDialog } from '@angular/material';
+import { TextInputSettingsComponent } from 'src/app/modules/shared/components/text-input/pop-up-settings/text-input-settings.component';
+
+import {MatNativeDateModule} from '@angular/material';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-form-builder',
@@ -12,7 +19,7 @@ import { AppComponentTypes } from 'src/app/core/globals';
 })
 export class FormBuilderComponent implements OnInit {
 
-  constructor(private appComponentTypes: AppComponentTypes) { }
+  constructor(private appComponentTypes: AppComponentTypes, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.loadComponents();
@@ -52,5 +59,10 @@ export class FormBuilderComponent implements OnInit {
     if (index > -1) {
       this.formComponents.splice(index, 1);
     }
+  }
+
+  onSettingsClicked() {
+   
+      this.dialog.open(TextInputSettingsComponent);
   }
 }
