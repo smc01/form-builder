@@ -3,12 +3,14 @@ import { CdkDragEnd, moveItemInArray, CdkDragDrop, copyArrayItem } from '@angula
 import { ModelBase } from 'src/app/modules/shared/components/models/ModelBase';
 import { AppComponentTypes } from 'src/app/core/globals';
 import { MatDialog } from '@angular/material';
-import { TextInputSettingsComponent } from 'src/app/modules/shared/components/text-input/pop-up-settings/text-input-settings.component';
 
-import {MatNativeDateModule} from '@angular/material';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { MatNativeDateModule } from '@angular/material';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import { MAT_DIALOG_DATA } from '@angular/material';
+import { TextInputSettingsComponent } from 'src/app/modules/shared/components/text-input/pop-up-settings/text-input-settings.component';
+import { TextboxModel } from 'src/app/modules/shared/components/text-input/models/TextboxModel';
 
 @Component({
   selector: 'app-form-builder',
@@ -61,8 +63,40 @@ export class FormBuilderComponent implements OnInit {
     }
   }
 
-  onSettingsClicked() {
-   
-      this.dialog.open(TextInputSettingsComponent);
+
+
+  onSettingsClicked(index) {
+
+    var temp = this.formComponents[index];
+
+
+
+
+
+    const dialogRef = this.dialog.open(TextInputSettingsComponent, {
+      data: {
+        key: "1",
+        id: "1",
+        componentType: "setting",
+        index: 1,
+        editable: false,
+        label: "string",
+        required: false,
+        value: "no value",
+        description: "description",
+        placeholder: "placeholder",
+        validationMessage: "validationMessage",
+        validationRule: "validationRule",
+        charactersLimit: 1
+      }
+    }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result.label);
+
+      this.formComponents[index].label = result.label;
+
+    });
   }
 }

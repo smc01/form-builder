@@ -1,50 +1,59 @@
-<p>
-  form-builder works!
-</p>
-<div class="example-container">
-  <h2>Form</h2>
-  <div cdkDropList #destinationList="cdkDropList" [cdkDropListData]="formComponents" [cdkDropListConnectedTo]="[sourceList]"
-    class="example-list" (cdkDropListDropped)="drop($event)">
+<div class="row">
+  <p>
+    Form Builder
+  </p>
 
-    <div class="example-box" *ngFor="let item of formComponents; let i = index" cdkDrag cdkDragLockAxis="y"
-      [cdkDragData]="item" (CdkDragStart)="dragStart($event)" (cdkDragEnded)="ended($event)">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <div class="container-lg">
+      <h2>Form</h2>
+      <div cdkDropList #destinationList="cdkDropList" [cdkDropListData]="formComponents" [cdkDropListConnectedTo]="[sourceList]"
+        class="example-list" (cdkDropListDropped)="drop($event)">
 
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        <div class="example-box" *ngFor="let item of formComponents; let i = index" cdkDrag cdkDragLockAxis="y"
+          [cdkDragData]="item" (CdkDragStart)="dragStart($event)" (cdkDragEnded)="ended($event)">
 
-      <div [ngSwitch]="item.componentType">
-        <text-input *ngSwitchCase="appComponentTypes.textBox"></text-input>
-      </div>
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
-      <div class="example-settings" (click)="onSettingsClicked()">
-        <i class="fas fa-wrench"></i>
-      </div>
-      <div class="example-cancel" (click)="onClickMe(i)">
-        <i class="far fa-trash-alt fa-lg"></i>
-      </div>
+          <div [ngSwitch]="item.componentType">
+            <text-input *ngSwitchCase="appComponentTypes.textBox" [inputModel] ="formComponents[i]" ></text-input>
+          </div>
 
-      <div class="example-handle" cdkDragHandle>
-        <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
-          <path d="M0 0h24v24H0z" fill="none"></path>
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
+          <div class="example-settings" (click)="onSettingsClicked(i)">
+            <i class="fas fa-wrench"></i>
+          </div>
+          <div class="example-cancel" (click)="onClickMe(i)">
+            <i class="far fa-trash-alt fa-lg"></i>
+          </div>
 
-<div class="example-container">
-  <h2>Available components</h2>
-
-  <div cdkDropList #sourceList="cdkDropList" [cdkDropListData]="availableComponents" [cdkDropListConnectedTo]="[destinationList]"
-    class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of availableComponents" cdkDrag [cdkDragData]="item">
-      {{item.componentType}}
-      <div class="example-handle" cdkDragHandle>
-        <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
-          <path d="M0 0h24v24H0z" fill="none"></path>
-        </svg>
+          <div class="example-handle" cdkDragHandle>
+            <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+              <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="col-md-4">
+    <div class="example-container">
+      <h2>Available components</h2>
+
+      <div cdkDropList #sourceList="cdkDropList" [cdkDropListData]="availableComponents" [cdkDropListConnectedTo]="[destinationList]"
+        class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of availableComponents" cdkDrag [cdkDragData]="item">
+          {{item.componentType}}
+          <div class="example-handle" cdkDragHandle>
+            <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+              <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
 </div>
