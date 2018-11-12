@@ -22,6 +22,7 @@ export class TextInputSettingsComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  labelPosition = 'before';
   constructor(
     public dialogRef: MatDialogRef<TextInputSettingsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: TextboxModel) {}

@@ -37,8 +37,7 @@ export class FormBuilderComponent implements OnInit {
 
   loadComponents(): any {
     this.availableComponents = [
-      new ModelBase("", "0", this.appComponentTypes.textBox, 0, false, this.appComponentTypes.textBox, false, ""),
-      new ModelBase("", "1", "label", 1, false, "label", false, "")
+      new TextboxModel("", "textBox1", 0, false, this.appComponentTypes.textBox, false,[""],"description","placeholder", "validationMessage", "validationRule", 100)   
     ];
   }
 
@@ -69,33 +68,34 @@ export class FormBuilderComponent implements OnInit {
 
     var temp = this.formComponents[index];
 
-
+    let settings = {
+      key: "1",
+      id: "1",
+      componentType: "setting",
+      index: 1,
+      editable: false,
+      label: "string",
+      required: false,
+      value: "no value",
+      description: "description",
+      placeholder: "placeholder",
+      validationMessage: "validationMessage",
+      validationRule: "validationRule",
+      charactersLimit: 1
+    };
 
 
 
     const dialogRef = this.dialog.open(TextInputSettingsComponent, {
-      data: {
-        key: "1",
-        id: "1",
-        componentType: "setting",
-        index: 1,
-        editable: false,
-        label: "string",
-        required: false,
-        value: "no value",
-        description: "description",
-        placeholder: "placeholder",
-        validationMessage: "validationMessage",
-        validationRule: "validationRule",
-        charactersLimit: 1
-      }
+      data: settings
     }
     );
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result.label);
 
-      this.formComponents[index].label = result.label;
+            this.formComponents[index] = new ModelBase("", "0", this.appComponentTypes.textBox, index, false, result.label, false, "");
+            
 
     });
   }
