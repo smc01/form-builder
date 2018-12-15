@@ -1,15 +1,41 @@
 <div class="settings-container">
   <h1 mat-dialog-title>Text Box - details</h1>
-  <mat-dialog-content class="mat-typography">
-    <form>
-      <mat-form-field>
+  <mat-dialog-content>
+    <form class="example-form">
+
+      <mat-form-field class="example-full-width">
         <mat-label>Question/Label</mat-label>
-        <input matInput [(ngModel)]="data.label" [placeholder]="data.placeholder" name="first">
+        <input matInput [(ngModel)]="data.label" name="input-label">
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>vasile </mat-label>
-        <input matInput placeholder="Just a placeholder">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Placeholder</mat-label>
+        <input matInput [(ngModel)]="data.placeholder" name="input-placeholder">
       </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="data.description" name="input-description">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Validation message</mat-label>
+        <input matInput [(ngModel)]="data.validationMessage" name="input-validationmessage">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Validation rule</mat-label>
+        <input matInput [(ngModel)]="data.validationRule" name="input-validationrule">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Characters limit</mat-label>
+        <input matInput type="number" [(ngModel)]="data.charactersLimit" name="input-charactersLimit">
+      </mat-form-field>
+
+      <mat-checkbox [(ngModel)]="data.required" name="input-required" labelPosition="before">Required</mat-checkbox>
+
+
     </form>
   </mat-dialog-content>
   <mat-dialog-actions>
