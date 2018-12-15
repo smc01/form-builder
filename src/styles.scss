@@ -113,8 +113,8 @@
   flex-direction: column;
 }
 
-.settings-container>* {
-  width: 100%;
+.row {
+  margin: 0;
 }
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
