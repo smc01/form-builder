@@ -3,20 +3,12 @@
   <mat-dialog-content class="mat-typography">
     <form>
       <mat-form-field>
-        <input matInput placeholder="Label" [(ngModel)]="data.label">
+        <mat-label>Question/Label</mat-label>
+        <input matInput [(ngModel)]="data.label" [placeholder]="data.placeholder" name="first">
       </mat-form-field>
-
       <mat-form-field>
-        <input matInput placeholder="Description" [(ngModel)]="data.description">
-      </mat-form-field>
-
-
-      <mat-form-field>
-        <input matInput placeholder="placeholder" [(ngModel)]="data.placeholder">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-checkbox class="example-margin" [(ngModel)]="checked" [labelPosition]="labelPosition">Checked</mat-checkbox>
+        <mat-label>vasile </mat-label>
+        <input matInput placeholder="Just a placeholder">
       </mat-form-field>
     </form>
   </mat-dialog-content>
@@ -24,5 +16,4 @@
     <button mat-button (click)="onNoClick()">No Thanks</button>
     <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
   </mat-dialog-actions>
-
 </div>
