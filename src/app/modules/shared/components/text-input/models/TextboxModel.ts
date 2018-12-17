@@ -1,5 +1,6 @@
-import { Component, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ModelBase } from '../../models/ModelBase';
+import { ComponentType } from '../../component-type';
 
 
 
@@ -14,6 +15,7 @@ export class TextboxModel extends ModelBase {
     constructor(
         __key?: string,
         __id?: string,
+        __componentType?:string,
         __index?: number,
         __editable?: boolean,
         __label?: string,
@@ -26,7 +28,7 @@ export class TextboxModel extends ModelBase {
         __validationRule?: string,
         __charactersLimit?: number
     ) {
-        super(__key, __id, 'textbox', __index, __editable, __label, __required, __value);
+        super(__key, __id, ComponentType.TextBox, __index, __editable, __label, __required, __value);
 
         this.description = __description || '';
         this.placeholder = __placeholder || '';

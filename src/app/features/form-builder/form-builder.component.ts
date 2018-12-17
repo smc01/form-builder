@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { TextInputSettingsComponent } from 'src/app/modules/shared/components/text-input/pop-up-settings/text-input-settings.component';
 import { TextboxModel } from 'src/app/modules/shared/components/text-input/models/TextboxModel';
+import { DefaultModels } from 'src/app/modules/shared/components/default-models';
 
 @Component({
   selector: 'app-form-builder',
@@ -37,7 +38,7 @@ export class FormBuilderComponent implements OnInit {
 
   loadComponents(): any {
     this.availableComponents = [
-      new TextboxModel("", "textBox1", 0, false, this.appComponentTypes.textBox, false,[""],"description","placeholder", "validationMessage", "validationRule", 100)   
+      DefaultModels.TextBox   
     ];
   }
 
@@ -69,19 +70,7 @@ export class FormBuilderComponent implements OnInit {
     var temp = this.formComponents[index];
 
     let settings = {
-      key: "1",
-      id: "1",
-      componentType: "setting",
-      index: 1,
-      editable: false,
-      label: "string",
-      required: false,
-      value: "no value",
-      description: "description",
-      placeholder: "placeholder",
-      validationMessage: "validationMessage",
-      validationRule: "validationRule",
-      charactersLimit: 1
+      ...temp
     };
 
 
@@ -94,9 +83,20 @@ export class FormBuilderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result.label);
 
-            this.formComponents[index] = new ModelBase("", "0", this.appComponentTypes.textBox, index, false, result.label, false, "");
+
+
+            this.formComponents[index] = this.getModel(result);
             
 
     });
+
+    
   }
+  
+    getModel(result:any):any{
+
+      let sampleModel = <TextboxModel> result;
+
+      return {...sampleModel};
+    }
 }

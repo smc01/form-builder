@@ -11,5 +11,5 @@ export class Globals {
 
 @Injectable()
 export class AppComponentTypes{
-    textBox: string = "textBox";
+    textBox: string = "textbox";
 }

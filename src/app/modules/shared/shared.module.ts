@@ -4,6 +4,8 @@ import { TextInputSettingsComponent } from "./components/text-input/pop-up-setti
 import { MaterialModuleModule } from "src/app/material-module/material-module.module";
 
 import { FormsModule } from '@angular/forms';
+import { ComponentType } from "./components/component-type";
+import { DefaultModels } from "./components/default-models";
 
 @NgModule({
     entryComponents:[TextInputSettingsComponent],

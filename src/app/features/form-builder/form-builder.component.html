@@ -16,7 +16,7 @@
           <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
           <div [ngSwitch]="item.componentType">
-            <text-input *ngSwitchCase="appComponentTypes.textBox" [inputModel] ="formComponents[i]" ></text-input>
+            <text-input *ngSwitchCase="appComponentTypes.textBox" [inputModel]="formComponents[i]"></text-input>
           </div>
 
           <div class="example-settings" (click)="onSettingsClicked(i)">
@@ -35,9 +35,9 @@
         </div>
       </div>
     </div>
-  <div *ngFor="let item of formComponents;">
-    {{item.placeholder}}
-  </div>
+    <div *ngFor="let item of formComponents;">
+      {{item.label}} {{item.componentType}}
+    </div>
   </div>
 
   <div class="col-md-4">
