@@ -4,14 +4,15 @@ import { TextInputSettingsComponent } from "./components/text-input/pop-up-setti
 import { MaterialModuleModule } from "src/app/material-module/material-module.module";
 
 import { FormsModule } from '@angular/forms';
-import { ComponentType } from "./components/component-type";
-import { DefaultModels } from "./components/default-models";
+
+import { LabelComponent } from "./components/label/label.component";
+import { LabelSettingsComponent } from "./components/label/label-settings/label-settings.component";
 
 @NgModule({
-    entryComponents:[TextInputSettingsComponent],
+    entryComponents:[TextInputSettingsComponent, LabelSettingsComponent],
     imports: [MaterialModuleModule, FormsModule],
-    declarations: [TextBoxComponent, TextInputSettingsComponent],
-    exports: [TextBoxComponent, TextInputSettingsComponent, MaterialModuleModule, FormsModule],
+    declarations: [TextBoxComponent, TextInputSettingsComponent, LabelComponent, LabelSettingsComponent],
+    exports: [TextBoxComponent, TextInputSettingsComponent, LabelComponent, LabelSettingsComponent, MaterialModuleModule, FormsModule],
     providers: []
 
 })

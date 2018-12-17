@@ -17,6 +17,7 @@
 
           <div [ngSwitch]="item.componentType">
             <text-input *ngSwitchCase="appComponentTypes.textBox" [inputModel]="formComponents[i]"></text-input>
+            <label-component  *ngSwitchCase="appComponentTypes.label" [inputModel]="formComponents[i]"></label-component>
           </div>
 
           <div class="example-settings" (click)="onSettingsClicked(i)">

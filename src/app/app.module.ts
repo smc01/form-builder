@@ -16,10 +16,10 @@ import { FormBuilderComponent } from './features/form-builder/form-builder.compo
 import { FeaturesModule } from './features/features.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
-    
   ],
   imports: [
     BrowserModule,

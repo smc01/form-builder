@@ -1,0 +1,20 @@
+<div class="settings-container">
+  <h1 mat-dialog-title>vasile</h1>
+  <mat-dialog-content>
+    <form class="example-form">
+
+      <mat-form-field class="example-full-width">
+        <!-- <mat-label>Question/Label</mat-label>
+        <input matInput [(ngModel)]="data.label" name="input-label">
+      </mat-form-field> -->
+
+      <mat-checkbox [(ngModel)]="data.required" name="input-required" labelPosition="before">Required</mat-checkbox>
+
+
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </mat-dialog-actions>
+</div>

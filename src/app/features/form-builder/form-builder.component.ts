@@ -12,6 +12,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import { TextInputSettingsComponent } from 'src/app/modules/shared/components/text-input/pop-up-settings/text-input-settings.component';
 import { TextboxModel } from 'src/app/modules/shared/components/text-input/models/TextboxModel';
 import { DefaultModels } from 'src/app/modules/shared/components/default-models';
+import { LabelSettingsComponent } from 'src/app/modules/shared/components/label/label-settings/label-settings.component';
 
 @Component({
   selector: 'app-form-builder',
@@ -38,7 +39,8 @@ export class FormBuilderComponent implements OnInit {
 
   loadComponents(): any {
     this.availableComponents = [
-      DefaultModels.TextBox   
+      DefaultModels.TextBox,
+      DefaultModels.Label
     ];
   }
 
@@ -75,23 +77,35 @@ export class FormBuilderComponent implements OnInit {
 
 
 
-    const dialogRef = this.dialog.open(TextInputSettingsComponent, {
-      data: settings
-    }
-    );
+    const dialogRef = this.getDialog(settings);
+
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result!=undefined)
-      {
+      if (result != undefined) {
         console.log(result.label);
         this.formComponents[index] = this.getModel(result);
-      }        
+      }
     });
   }
-  
-    getModel(result:any):any{
 
-      let sampleModel = <TextboxModel> result;
-      return {...sampleModel};
+  getModel(result: any): any {
+
+    let sampleModel = <TextboxModel>result;
+    return { ...sampleModel };
+  }
+
+  getDialog(settings) {
+    if (settings.componentType == this.appComponentTypes.textBox) {
+      return this.dialog.open(TextInputSettingsComponent, {
+        data: settings
+      });
     }
+
+    if(settings.componentType == this.appComponentTypes.label){
+      return this.dialog.open(LabelSettingsComponent, {
+        data: settings
+      });
+    }
+
+  }
 }

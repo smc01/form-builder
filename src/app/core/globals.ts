@@ -13,4 +13,5 @@ export class Globals {
 @Injectable()
 export class AppComponentTypes{
     textBox: string = ComponentType.TextBox;
+    label : string = ComponentType.Label;
 }
