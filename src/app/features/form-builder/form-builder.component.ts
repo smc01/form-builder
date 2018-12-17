@@ -81,22 +81,17 @@ export class FormBuilderComponent implements OnInit {
     );
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result.label);
-
-
-
-            this.formComponents[index] = this.getModel(result);
-            
-
+      if(result!=undefined)
+      {
+        console.log(result.label);
+        this.formComponents[index] = this.getModel(result);
+      }        
     });
-
-    
   }
   
     getModel(result:any):any{
 
       let sampleModel = <TextboxModel> result;
-
       return {...sampleModel};
     }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ComponentType } from '../modules/shared/components/component-type';
 
 @Injectable()
 export class Globals {
@@ -11,5 +12,5 @@ export class Globals {
 
 @Injectable()
 export class AppComponentTypes{
-    textBox: string = "textbox";
+    textBox: string = ComponentType.TextBox;
 }
